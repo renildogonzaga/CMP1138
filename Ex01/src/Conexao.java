@@ -1,6 +1,5 @@
-package com.exemplocrudfx.dao;
 
-	import java.sql.DriverManager;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,16 +8,16 @@ import com.mysql.jdbc.Connection;
 
 	public class Conexao
 	{
-	    //usu√°rio e senha
+	    //usu·rio e senha
 	       private String login = "root";
 	      private String senha = "";
 	   // IP do servidor do banco
 	      private String host = "localhost";
 	   // Nome do banco de dados
-	      private String dbName = "doutorado_bd";
+	      private String dbName = "projeto_pessoas";
 	   // URL de conexao do banco
 	      private String url = "jdbc:mysql://" + host + "/" + dbName;
-	  // Objeto do tipo Connection para estabelecer a conex√£o
+	  // Objeto do tipo Connection para estabelecer a conex„o
 	      public Connection conexao = null;
 	  // Objeto Statement usado para enviar consultas para o banco de dados
 	     public Statement stmt = null;
@@ -27,33 +26,24 @@ import com.mysql.jdbc.Connection;
 
 	public Connection abreConexaoBD()
 	{
-	  try
-	  {
 	   try
-	     {
+       {
 	     Class.forName("com.mysql.jdbc.Driver");
-	     }
-	     catch (ClassNotFoundException ex)
-	     {
+	   }
+	   catch (ClassNotFoundException ex)
+	   {
 	      return null;
-	     }
+	   }
+
 	   try
 	   {
 	    // efetua conexao com o banco de dados
-	    this.conexao = 
-	          (Connection) DriverManager.getConnection(url,login,senha);
+	    this.conexao = (Connection) DriverManager.getConnection(url,login,senha);
 	   }
 	   catch (SQLException ex)
 	   {
 	    return null;
 	   }
 	   return this.conexao;
-	   }
-	   catch (Exception e)
-	   {
-	    return null;
-	   }
 	}
-
-
 }

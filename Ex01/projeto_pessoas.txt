@@ -1,0 +1,6 @@
+create table telefone(
+idtel int not null auto_increment primary key,
+num varchar(15) not null,
+id int not null,
+constraint telefone_pessoa foreign key (id) references pessoa (id)
+)engine=innodb; 

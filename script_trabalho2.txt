@@ -1,0 +1,27 @@
+CREATE DATABASE trabalho2;
+
+use trabalho2;
+
+create table profissao(
+id_profis int not null primary key auto_increment,
+descricao varchar(45) not null
+) engine=innodb;
+
+create table pessoa(
+id_pessoa int not null primary key auto_increment,
+cpf varchar(15) not null,
+nome varchar(45) not null,
+datanasc varchar(10) not null,
+id_profis int not null
+) engine=innodb;
+
+create table usuario(
+id_usuario int not null primary key auto_increment,
+nome varchar(45) not null,
+usuario varchar(10) not null,
+senha varchar(4) not null
+) engine=innodb;
+
+INSERT INTO profissao VALUES (1,"Vitae Consulting"),(2,"Dictum Mi PC"),(3,"Facilisis Magna Tellus Ltd"),(4,"Nascetur LLP"),(5,"Ac Facilisis Facilisis Foundation"),(6,"Et Ipsum Industries"),(7,"Sodales Elit Erat Associates"),(8,"Donec Incorporated"),(9,"Vel Mauris Institute"),(10,"Et Pede Nunc LLC");
+INSERT INTO pessoa VALUES(1,'98787461916','Bertha','02/08/1969',4),(2,'82256090341','Alika','23/01/1954',8),(3,'92926237901','Jelani','03/05/1968',6),(4,'54646081753','August','24/12/1972',5),(5,'16543389223','Jena','10/09/1983',9),(6,'75230014781','Cain','04/09/1994',2),(7,'71406202846','Aiko','02/07/1981',4),(8,'11172694486','Echo','13/09/1952',2),(9,'57071370668','Serina','17/06/1967',4),(10,'21087356081','Alfreda','16/03/1968',1);
+INSERT INTO usuario VALUES (1,"Aubrey Massey","djgr","5535"),(2,"Lacey Lloyd","nxzl","4351"),(3,"Robert Warner","jluu","5011"),(4,"Benedict Hurst","ugbg","8278"),(5,"Naida Harrison","vjgu","6617"),(6,"Medge Gross","vpgu","6556"),(7,"Penelope Deleon","pvxk","2347"),(8,"Raphael Ewing","rmnk","3512"),(9,"Joelle Richardson","hied","4242"),(10,"Yoshio Fitzpatrick","ibnw","4408");

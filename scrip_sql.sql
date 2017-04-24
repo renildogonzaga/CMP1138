@@ -10,6 +10,10 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+create database doutorado_bd;
+
+use doutorado_bd;
+
 -- Copiando estrutura para tabela doutorado_bd.bancos_dados
 CREATE TABLE IF NOT EXISTS `bancos_dados` (
   `bdd_id` int(11) NOT NULL AUTO_INCREMENT,
