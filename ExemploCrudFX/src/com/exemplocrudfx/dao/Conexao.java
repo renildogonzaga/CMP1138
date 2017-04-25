@@ -11,7 +11,7 @@ import com.mysql.jdbc.Connection;
 	{
 	    //usuário e senha
 	       private String login = "root";
-	      private String senha = "";
+	      private String senha = "123";
 	   // IP do servidor do banco
 	      private String host = "localhost";
 	   // Nome do banco de dados

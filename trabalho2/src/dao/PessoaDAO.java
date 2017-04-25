@@ -143,4 +143,37 @@ public class PessoaDAO {
 		}
 		return profis;
 	}
+	
+	public ArrayList<Pessoa> consultarPessoas(String parametro) {
+
+		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+		Pessoa p;
+
+		Conexao conexao = new Conexao();
+		Connection conn = null;
+		ResultSet rs = null;
+		Statement st = null;
+		PreparedStatement ps = null;
+		String sql = "";
+		conn = conexao.abreConexaoBD();
+
+		if (parametro == null) {
+			sql = "Select * from pessoa order by nome";
+		} else {
+			sql = "select * from pessoa where nome like '" + parametro + "%'";
+		}
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				p = new Pessoa();
+				p.setNome(rs.getString("nome"));
+				p.setCpf(rs.getString("cpf"));
+				pessoas.add(p);
+			}
+		} catch (SQLException e) {
+			pessoas = null;
+		}
+		return pessoas;
+	}
 }
