@@ -98,4 +98,49 @@ public class PessoaDAO {
 		}
 		return retorno;
 	}
+	
+	public Object localizarPorCpf(String cpf){
+		Pessoa p = new Pessoa();
+		Conexao conexao = new Conexao();
+		Connection conn = null;
+		ResultSet rs = null;
+		Statement st = null;
+		conn = conexao.abreConexaoBD();
+		String sql = "SELECT id_pessoa, cpf, nome, datanasc, id_profis FROM pessoa where cpf like'" + cpf + "'";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			if (rs.next()) {
+				p.setId_pessoa(rs.getInt(1));
+				p.setCpf(rs.getString(2));
+				p.setNome(rs.getString(3));
+				p.setDatanasc(rs.getString(4));
+				p.setId_profis(rs.getInt(5));
+			}
+		} catch (SQLException e) {
+			p.setCpf("");
+			p.setNome("");
+		}
+		return p;
+	}
+	
+	public String retornaProfissao(int idprofis){
+		Conexao conexao = new Conexao();
+		Connection conn = null;
+		ResultSet rs = null;
+		Statement st = null;
+		conn = conexao.abreConexaoBD();
+		String profis = "";
+		String sql = "SELECT descricao FROM profissao where id_profis="+idprofis;
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			if (rs.next()) {
+				profis = rs.getString(1);
+			}
+		} catch (SQLException e) {
+
+		}
+		return profis;
+	}
 }
