@@ -40,7 +40,7 @@
 							  <TextField fx:id="txtNomePesquisa" layoutX="150.0" layoutY="128.0" prefHeight="25.0" prefWidth="192.0" promptText="Nome" />
 							  <Label layoutX="235.0" layoutY="153.0" text="ou" />
                               <TextField fx:id="txtCpfPesquisa" layoutX="150.0" layoutY="168.0" prefHeight="25.0" prefWidth="192.0" promptText="CPF" />
-                              <Button fx:id="btnPesquisar" layoutX="220.0" layoutY="198.0" mnemonicParsing="false" text="Localizar" />
+                              <Button fx:id="btnPesquisar" layoutX="220.0" layoutY="198.0" mnemonicParsing="false" onAction="#onActionBtnPesquisar" text="Localizar" />
                            </children>
                         </Pane>
                      </content></Tab>

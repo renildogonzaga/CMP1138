@@ -151,6 +151,37 @@ public class MenuPessoaController implements Initializable {
 	}
 	
 	@FXML
+	void onActionBtnPesquisar(ActionEvent event) throws SQLException {
+
+		Pessoa p = new Pessoa();
+		PessoaDAO pDAO = new PessoaDAO();
+		Util u = new Util();
+		
+		p.setCpf(this.txtCpfPesquisa.getText());
+		
+		//	Verifica se algum campo está em branco
+		if(p.getCpf().trim().equals("")){
+			u.mensagemErro("Preencha o CPF da pessoa!");	
+		}
+		else
+		{
+			Pessoa p2 = new Pessoa();
+			p2 = (Pessoa) pDAO.localizarPorCpf(p.getCpf());
+			if(p2.getNome().trim().equals("") || p2.getCpf().trim().equals("")){
+				u.mensagemErro("Pessoa não localizada!");
+				this.limpaTela();
+			}
+			else{
+				String profissao = ""; 
+				profissao = pDAO.retornaProfissao(p2.getId_profis());
+				u.mensagemInformacao("Nome: "+p2.getNome()+"\nCPF: "+p2.getCpf()+"\nData Nascimento: "+p2.getDatanasc()+"\nProfissão: "+profissao);
+				this.limpaTela();
+			}
+			
+		}
+	}
+	
+	@FXML
 	void onActionBtnLimpar(ActionEvent event) {
 		this.limpaTela();
 
