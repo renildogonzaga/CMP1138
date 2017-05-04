@@ -43,8 +43,10 @@
                               <Button fx:id="btnPesquisar" layoutX="327.0" layoutY="59.0" mnemonicParsing="false" onAction="#onActionBtnPesquisar" prefHeight="25.0" prefWidth="62.0" text="Localizar" />
                               <TableView fx:id="tableViewMenuPessoa" layoutX="20.0" layoutY="125.0" prefHeight="201.0" prefWidth="431.0">
                                 <columns>
-                                  <TableColumn fx:id="colunaNome" prefWidth="292.0" text="Nome" />
-                                  <TableColumn fx:id="colunaCpf" prefWidth="137.0" text="CPF" />
+                                  <TableColumn fx:id="colunaNome" prefWidth="112.0" text="Nome" />
+                                  <TableColumn fx:id="colunaCpf" prefWidth="107.0" text="CPF" />
+                                  <TableColumn fx:id="colunaDtNasc" prefWidth="100.0" text="Dt. Nasc." />
+                                  <TableColumn fx:id="colunaProfis" prefWidth="110.0" text="Profissão" />
                                 </columns>
                               </TableView>
                               <Button fx:id="btnLimparPesquisa" layoutX="389.0" layoutY="59.0" mnemonicParsing="false" onAction="#onActionBtnLimparPesquisa" prefHeight="25.0" prefWidth="62.0" text="Limpar" />

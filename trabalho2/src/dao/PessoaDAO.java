@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import model.Pessoa;
+import model.Profissao;
 
 public class PessoaDAO {
 	
@@ -157,7 +158,7 @@ public class PessoaDAO {
 		String sql = "";
 		conn = conexao.abreConexaoBD();
 
-		if (parametro == null) {
+		if (parametro == "") {
 			sql = "Select * from pessoa order by nome";
 		} else {
 			sql = "select * from pessoa where nome like '" + parametro + "%'";
@@ -169,6 +170,10 @@ public class PessoaDAO {
 				p = new Pessoa();
 				p.setNome(rs.getString("nome"));
 				p.setCpf(rs.getString("cpf"));
+				p.setDatanasc((rs.getString("datanasc")));
+				p.setId_profis(rs.getInt("id_profis"));
+				ProfissaoDAO pr = new ProfissaoDAO();
+				p.setDescricao(pr.getDescricao(p.getId_profis()));
 				pessoas.add(p);
 			}
 		} catch (SQLException e) {

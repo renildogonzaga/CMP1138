@@ -93,6 +93,12 @@ public class MenuPessoaController implements Initializable {
     private TableColumn<Pessoa,String> colunaCpf;
     
     @FXML
+    private TableColumn<Pessoa,String> colunaDtNasc;
+    
+    @FXML
+    private TableColumn<Pessoa,String> colunaProfis;
+    
+    @FXML
     private ComboBox<String> comboProfissao;
 
 	@Override
@@ -181,11 +187,12 @@ public class MenuPessoaController implements Initializable {
 		//String pesquisaCpf = txtCpfPesquisa.getText();
 		String pesquisaNome = txtNomePesquisa.getText();
 
-		if (!pesquisaNome.trim().equals("")) {
+		//if (!pesquisaNome.trim().equals("")) {
 			ArrayList<Pessoa> pVazia = new ArrayList<Pessoa>();
 			ObservableList obl = FXCollections.observableArrayList(pVazia);
 			this.tableViewMenuPessoa.setItems(obl);
 			Pessoa p = new Pessoa();
+			Profissao pr = new Profissao();
 			PessoaDAO pDAO = new PessoaDAO();
 			ArrayList<Pessoa> getPessoas = new ArrayList<Pessoa>();
 			getPessoas = pDAO.consultarPessoas(pesquisaNome);
@@ -193,7 +200,9 @@ public class MenuPessoaController implements Initializable {
 			this.tableViewMenuPessoa.setItems(obl);
 			this.colunaNome.setCellValueFactory(new PropertyValueFactory<Pessoa, String>("nome"));
 			this.colunaCpf.setCellValueFactory(new PropertyValueFactory<Pessoa, String>("cpf"));
-		}
+			this.colunaDtNasc.setCellValueFactory(new PropertyValueFactory<Pessoa, String>("datanasc"));
+			this.colunaProfis.setCellValueFactory(new PropertyValueFactory<Pessoa, String>("descricao"));
+		//}
 		
 		/*else {
 			if (!pesquisaCpf.trim().equals("")) {

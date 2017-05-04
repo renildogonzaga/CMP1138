@@ -55,4 +55,30 @@ public class ProfissaoDAO {
 		}
 		return id;
 	}
+	
+	public String getDescricao(int cod) {
+		
+		Conexao conexao = new Conexao();
+		Connection conn = null;
+		ResultSet rs = null;
+		Statement st = null;
+		PreparedStatement ps = null;
+		String sql = "Select descricao from profissao where id_profis="+cod;
+		conn = conexao.abreConexaoBD();
+		String descricao = "";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Profissao profis = new Profissao();
+				profis.setDescricao(rs.getString("descricao"));
+				descricao = profis.getDescricao();
+			}
+		} catch (SQLException e) {
+			return descricao;
+		}
+		return descricao;
+	}
+	
+	
 }

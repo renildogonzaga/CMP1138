@@ -3,7 +3,15 @@ package model;
 public class Pessoa {
 
 	int id_pessoa, id_profis;
-	String nome, cpf, datanasc;
+	String nome, cpf, datanasc, descricao;
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 	public int getId_pessoa() {
 		return id_pessoa;
